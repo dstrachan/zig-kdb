@@ -23,7 +23,8 @@ pub const KdbType = enum(i8) {
     dictionary = 99,
 };
 
-pub const K = *extern struct {
+pub const K = *k0;
+const k0 = extern struct {
     m: i8,
     a: i8,
     typ: i8,

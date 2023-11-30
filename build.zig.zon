@@ -1,0 +1,15 @@
+.{
+    .name = "zig-kdb",
+    .version = "0.1.0",
+    .dependencies = .{
+        .kdb = .{
+            .url = "https://github.com/dstrachan/kdb/archive/86baa1cec09078f20b50be4beefc14f90fe3cbc0.tar.gz",
+            .hash = "12207cf9a7dfcadcc16cbc8e595a8e1171733babb53b7683b5558c753c7c9b7efcc8",
+        },
+    },
+    .paths = .{
+        "build.zig",
+        "build.zig.zon",
+        "src",
+    },
+}
