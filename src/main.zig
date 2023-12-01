@@ -1,12 +1,13 @@
-const k = @import("k.zig");
+const std = @import("std");
 
-export fn add(x: k.K, y: k.K) k.K {
-    if (!x.isAtom(.long) or !y.isAtom(.long)) return k.err("type");
+const k = @import("kdb");
 
-    const _1 = k.makeAtom(.month, @intCast(x.as.long));
-    const _2 = k.makeAtom(.minute, @intCast(y.as.long));
-    const _3 = k.makeAtom(.second, @intCast(x.as.long + y.as.long));
-    const list = k.knk(3, _1, _2, _3);
+fn add(a: k.K, b: k.K) k.K {
+    return k.makeAtom(.long, a.as.long + b.as.long);
+}
 
-    return list;
+test "add" {
+    const a = k.makeAtom(.long, 3);
+    const b = k.makeAtom(.long, 7);
+    try std.testing.expect(add(a, b).as.long == 10);
 }
